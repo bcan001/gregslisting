@@ -1,0 +1,10 @@
+<h3><%= @category.name %></h3>
+<p><%= @subcategory.name %></p>
+
+<% @listings.each do |l| %>
+	<p><%= l.title %></p>
+	<p><%= l.description %></p>
+	<p><%= l.city %></p>
+	<p><%= l.state %></p>
+	<p><%= l.zipcode %></p>
+<% end %>

@@ -1,0 +1,27 @@
+<h3><%= link_to 'Create New Listing', new_listing_path %></h3>
+
+
+<h3><%= link_to @community.name, category_path(@community) %></h3>
+<% @community.subcategories.each do |c| %>
+	<p><%= link_to c.name, category_subcategory_path(@community, c) %></p>
+<% end %>
+
+<h3><%= link_to @personals.name, category_path(@personals) %></h3>
+<% @personals.subcategories.each do |c| %>
+	<p><%= c.name %></p>
+<% end %>
+
+<h3><%= link_to @housing.name, category_path(@housing) %></h3>
+<% @housing.subcategories.each do |c| %>
+	<p><%= c.name %></p>
+<% end %>
+
+<h3><%= link_to @forsale.name, category_path(@forsale) %></h3>
+<% @forsale.subcategories.each do |c| %>
+	<p><%= c.name %></p>
+<% end %>
+
+<h3><%= link_to @jobs.name, category_path(@jobs) %></h3>
+<% @jobs.subcategories.each do |c| %>
+	<p><%= c.name %></p>
+<% end %>
