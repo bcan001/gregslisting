@@ -1,27 +1,73 @@
-<h3><%= link_to 'Create New Listing', new_listing_path %></h3>
+<div class="span3 well" style="text-align:center;">
+	<h2>Gregslist</h2>
+  <% if user_signed_in? %>
+  	<%= link_to 'Create New Listing', new_listing_path %></br>
+    <%= link_to 'My Account', edit_user_registration_path %></br>
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></br>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path %></br>
+    <%= link_to 'Sign Up', new_user_registration_path %></br>
+  <% end %>
+
+  <%= form_tag search_listings_path, method: :get do |f| %>
+  	<h5>Search Gregslist</h5>
+    <%= text_field_tag :search, nil, placeholder: 'search' %>
+    <%= text_field_tag :location, nil, placeholder: 'near' %>
+    <h6>Category:</h6>
+    <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+    <%= submit_tag 'search' %>
+  <% end %>
+
+	<h5>help,faq,abuse,legal</h5>
+	<h5>avoid scams and fraud</h5>
+	<h5>personal safety tips</h5>
+	<h5>terms of use</h5>
+	<h5>privacy policy</h5>
+	<h5>system status</h5>
+</br>
+	<h5>about gregslist</h5>
+	<h5>gregslist open source</h5>
+	<h5>gregslist blog</h5>
+	<h5>best-of-gregslist</h5>
+	<h5>gregslist TV</h5>
+	<h5>gregslist Joe</h5>
+	<h5>gregs Connect</h5>
+
+</div>
 
 
-<h3><%= link_to @community.name, category_path(@community) %></h3>
-<% @community.subcategories.each do |c| %>
-	<p><%= link_to c.name, category_subcategory_path(@community, c) %></p>
-<% end %>
+			<h3><%= link_to @community.name, category_path(@community) %></h3>
+			<% @community.subcategories.each do |c| %>
+				<p><%= link_to c.name, category_subcategory_path(@community, c) %></p>
+			<% end %>
 
-<h3><%= link_to @personals.name, category_path(@personals) %></h3>
-<% @personals.subcategories.each do |c| %>
-	<p><%= c.name %></p>
-<% end %>
+			<h3><%= link_to @personals.name, category_path(@personals) %></h3>
+			<% @personals.subcategories.each do |c| %>
+				<p><%= link_to c.name, category_subcategory_path(@personals, c) %></p>
+			<% end %>
 
-<h3><%= link_to @housing.name, category_path(@housing) %></h3>
-<% @housing.subcategories.each do |c| %>
-	<p><%= c.name %></p>
-<% end %>
 
-<h3><%= link_to @forsale.name, category_path(@forsale) %></h3>
-<% @forsale.subcategories.each do |c| %>
-	<p><%= c.name %></p>
-<% end %>
+			<h3><%= link_to @forsale.name, category_path(@forsale) %></h3>
+			<% @forsale.subcategories.each do |c| %>
+				<p><%= link_to c.name, category_subcategory_path(@forsale, c) %></p>
+			<% end %>
 
-<h3><%= link_to @jobs.name, category_path(@jobs) %></h3>
-<% @jobs.subcategories.each do |c| %>
-	<p><%= c.name %></p>
-<% end %>
+			<h3><%= link_to @jobs.name, category_path(@jobs) %></h3>
+			<% @jobs.subcategories.each do |c| %>
+				<p><%= link_to c.name, category_subcategory_path(@jobs, c) %></p>
+			<% end %>
+			<h3><%= link_to @housing.name, category_path(@housing) %></h3>
+			<% @housing.subcategories.each do |c| %>
+			<p><%= link_to c.name, category_subcategory_path(@housing, c) %></p>
+			<% end %>
+
+
+			<h5>new listings:</h5>
+			<% @new_listings.each do |l| %>
+				<p><%= link_to l.title, listing_path(l) %></p>
+			<% end %>
+				</br>
+		
+
+
+

@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'categories#index'
 
   resources :categories do
     resources :subcategories
   end
 
-  resources :listings
+  resources :listings do
+    # adding search functionality to listings:
+    collection do
+      get 'search'
+    end
+  end
 
   #match '/contact', to: 'pages/contact', via: :get
 
