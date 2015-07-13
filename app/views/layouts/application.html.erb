@@ -9,7 +9,13 @@
 <body>
 	<!-- <p class="notice"><%= notice %></p> -->
 	<!-- <p class="alert"><%= alert %></p> -->
-	<%= yield %>
+
+
+	<%= render 'layouts/body1' unless @disable_nav %>
+		<%= yield %>
+	<%= render 'layouts/body2' unless @disable_nav %>
+	
+
 </body>
 <footer>
   <%= render 'layouts/footer' %>

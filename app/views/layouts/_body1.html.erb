@@ -1,0 +1,29 @@
+<div class="span3 well" style="text-align:center;">
+	<h2><%= link_to 'Gregslist', root_path %></h2>
+  <% if user_signed_in? %>
+  	<%= link_to 'Create New Listing', new_listing_path %></br>
+    <%= link_to 'My Account', edit_user_registration_path %></br>
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete %></br>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path %></br>
+    <%= link_to 'Sign Up', new_user_registration_path %></br>
+  <% end %>
+
+  <%= form_tag search_listings_path, method: :get do |f| %>
+  	<h5>Search Gregslist</h5>
+    <%= text_field_tag :search, nil, placeholder: 'search' %>
+    <%= text_field_tag :location, nil, placeholder: 'near' %>
+    <h6>Category:</h6>
+    <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+    <%= submit_tag 'search' %>
+  <% end %>
+
+	<h5>help,faq,abuse,legal</h5>
+	<h5>avoid scams and fraud</h5>
+	<h5>personal safety tips</h5>
+	<h5>terms of use</h5>
+	<h5>privacy policy</h5>
+	<h5>system status</h5>
+	</br>
+</div>
+<div class="span8 well" style="background:white;border:white;">

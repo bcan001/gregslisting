@@ -1,14 +1,8 @@
-<div class="span4 well" style="text-align:center;background:white;border:white;">
-</div>
-<div class="span8 well" style="background:white;border:white;">
+<h3 style="text-align:center;"><%= @listing.category.name %> > <%= @listing.subcategory.name %></h3>
 
-	<h3 style="text-align:center;"><%= @listing.title %></h3>
-	<p><%= @listing.description %></p>
-	<p><%= @listing.city %>, <%= @listing.state %></p>
-	<p><%= @listing.zipcode %></p>
-	<p> Posted <%= time_ago_in_words @listing.created_at %> ago </p>
-	
-</div>
-</div>
-<div class="span4 well" style="text-align:center;background:white;border:white;">
-</div>
+<h3 style="text-align:center;"><%= @listing.title %></h3>
+<p><%= @listing.description %></p>
+<p><%= @listing.city %>, <%= @listing.state %></p>
+<p><%= @listing.zipcode %></p>
+<p> Posted <%= time_ago_in_words @listing.created_at %> ago </p>
+

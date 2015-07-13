@@ -1,23 +1,26 @@
 <%= javascript_include_tag 'listings.js' %>
 
+	<h3 style="text-align:center;">Create New Listing:</h3>
+	
+	<div style="text-align:center;">
+		<%= form_for @listing do |f| %>
+			<p><%= f.label :title %></p>
+			<p><%= f.text_field :title %></p>
+			<p><%= f.label :description %></p>
+			<p><%= f.text_area :description %></p>
 
-<%= form_for @listing do |f| %>
-	<p><%= f.label :title %></p>
-	<p><%= f.text_field :title %></p>
-	<p><%= f.label :description %></p>
-	<p><%= f.text_area :description %></p>
+			<p><%= f.label :category_id %>
+				<%= f.select :category_id, Category.all.map { |f| [f.name, f.id] } %></p>
 
-	<p><%= f.label :category_id %>
-		<%= f.select :category_id, Category.all.map { |f| [f.name, f.id] } %></p>
+			<p><%= f.label :subcategory_id %>
+				<%= f.select :subcategory_id, options_for_select([]) %></p>
 
-	<p><%= f.label :subcategory_id %>
-		<%= f.select :subcategory_id, options_for_select([]) %></p>
-
-	<p><%= f.label :city %></p>
-	<p><%= f.text_field :city %></p>
-	<p><%= f.label :state %></p>
-	<p><%= f.text_field :state %></p>
-	<p><%= f.label :zipcode %></p>
-	<p><%= f.text_field :zipcode, class: "zip-width", maxlength: "5" %></p>
-	<p><%= f.submit %></p>
-<% end %>
+			<p><%= f.label :city %></p>
+			<p><%= f.text_field :city %></p>
+			<p><%= f.label :state %></p>
+			<p><%= f.text_field :state %></p>
+			<p><%= f.label :zipcode %></p>
+			<p><%= f.text_field :zipcode, class: "zip-width", maxlength: "5" %></p>
+			<p><%= f.submit %></p>
+		<% end %>
+	</div>

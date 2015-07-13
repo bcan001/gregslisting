@@ -9,6 +9,8 @@ class CategoriesController < ApplicationController
 		@jobs = @categories[4]
 
 		@new_listings = Listing.order("id DESC").limit(7)
+
+		@disable_nav = true
 	end
 
 	def show

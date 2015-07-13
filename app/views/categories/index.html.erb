@@ -1,5 +1,5 @@
 <div class="span3 well" style="text-align:center;">
-	<h2>Gregslist</h2>
+	<h2><%= link_to 'Gregslist', root_path %></h2>
   <% if user_signed_in? %>
   	<%= link_to 'Create New Listing', new_listing_path %></br>
     <%= link_to 'My Account', edit_user_registration_path %></br>
@@ -70,7 +70,7 @@
 	<h5>gregs Connect</h5>
 	</br>
 	<h5>new listings:</h5>
-	<% @new_listings.each do |l| %>
+	<% Listing.limit(7).reverse.each do |l| %>
 		<p><%= link_to "#{l.title}, #{l.city}", listing_path(l) %></p>
 	<% end %>
 	</br>
