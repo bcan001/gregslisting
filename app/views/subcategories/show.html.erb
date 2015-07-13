@@ -1,10 +1,15 @@
-<h3><%= @category.name %></h3>
-<p><%= @subcategory.name %></p>
+<div class="span4 well" style="text-align:center;background:white;border:white;">
+</div>
+<div class="span8 well" style="background:white;border:white;">
 
-<% @listings.each do |l| %>
-	<p><%= l.title %></p>
-	<p><%= l.description %></p>
-	<p><%= l.city %></p>
-	<p><%= l.state %></p>
-	<p><%= l.zipcode %></p>
-<% end %>
+			<h3 style="text-align:center;"><%= @category.name %></h3>
+			<h4 style="text-align:center;"><%= @subcategory.name %></h4>
+
+			<% @listings.each do |l| %>
+				<p><%= l.created_at %>: <%= link_to l.title, listing_path(l) %>: <%= l.city %>, <%= l.state %></p>
+			<% end %>
+
+    </div>
+</div>
+<div class="span4 well" style="text-align:center;background:white;border:white;">
+</div>

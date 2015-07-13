@@ -1,7 +1,14 @@
-<% @listing.each do |l| %>
-	<h3><%= l.title %></h3>
-	<p><%= l.description %></p>
-	<p><%= l.city %></p>
-	<p><%= l.state %></p>
-	<p><%= l.zipcode %></p>
-<% end %>
+<div class="span4 well" style="text-align:center;background:white;border:white;">
+</div>
+<div class="span8 well" style="background:white;border:white;">
+
+			<h3 style="text-align:center;">Search Result:</h3>
+
+			<% @listing.each do |l| %>
+				<p><%= l.created_at %>: <%= link_to l.title, listing_path(l) %>: <%= l.city %>, <%= l.state %> in <%= l.subcategory.name %>, <%= Category.find(l.category_id).name %></p>
+			<% end %>
+
+    </div>
+</div>
+<div class="span4 well" style="text-align:center;background:white;border:white;">
+</div>
