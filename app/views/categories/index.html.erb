@@ -24,7 +24,43 @@
 	<h5>terms of use</h5>
 	<h5>privacy policy</h5>
 	<h5>system status</h5>
-</br>
+	</br>
+</div>
+
+<div class="span4 well" style="text-align:center;background:white;border:white;">
+	<h3><%= link_to @community.name, category_path(@community) %></h3>
+	<% @community.subcategories.each do |c| %>
+		<p><%= link_to c.name, category_subcategory_path(@community, c) %></p>
+	<% end %>
+
+	<h3><%= link_to @personals.name, category_path(@personals) %></h3>
+	<% @personals.subcategories.each do |c| %>
+		<p><%= link_to c.name, category_subcategory_path(@personals, c) %></p>
+	<% end %>
+
+	<h3><%= link_to @forsale.name, category_path(@forsale) %></h3>
+	<% @forsale.subcategories.each do |c| %>
+		<p><%= link_to c.name, category_subcategory_path(@forsale, c) %></p>
+	<% end %>
+</div>
+
+<div class="span4 well" style="text-align:center;background:white;border:white;">
+	<h3><%= link_to @jobs.name, category_path(@jobs) %></h3>
+	<% @jobs.subcategories.each do |c| %>
+		<p><%= link_to c.name, category_subcategory_path(@jobs, c) %></p>
+	<% end %>
+	<h3><%= link_to @housing.name, category_path(@housing) %></h3>
+	<% @housing.subcategories.each do |c| %>
+	<p><%= link_to c.name, category_subcategory_path(@housing, c) %></p>
+	<% end %>
+	</br>
+</div>
+
+
+<div class="span3 well" style="text-align:center;">
+	<h4>City</h4>
+
+	</br>
 	<h5>about gregslist</h5>
 	<h5>gregslist open source</h5>
 	<h5>gregslist blog</h5>
@@ -32,42 +68,11 @@
 	<h5>gregslist TV</h5>
 	<h5>gregslist Joe</h5>
 	<h5>gregs Connect</h5>
-
+	</br>
+	<h5>new listings:</h5>
+	<% @new_listings.each do |l| %>
+		<p><%= link_to "#{l.title}, #{l.city}", listing_path(l) %></p>
+	<% end %>
+	</br>
 </div>
-
-
-			<h3><%= link_to @community.name, category_path(@community) %></h3>
-			<% @community.subcategories.each do |c| %>
-				<p><%= link_to c.name, category_subcategory_path(@community, c) %></p>
-			<% end %>
-
-			<h3><%= link_to @personals.name, category_path(@personals) %></h3>
-			<% @personals.subcategories.each do |c| %>
-				<p><%= link_to c.name, category_subcategory_path(@personals, c) %></p>
-			<% end %>
-
-
-			<h3><%= link_to @forsale.name, category_path(@forsale) %></h3>
-			<% @forsale.subcategories.each do |c| %>
-				<p><%= link_to c.name, category_subcategory_path(@forsale, c) %></p>
-			<% end %>
-
-			<h3><%= link_to @jobs.name, category_path(@jobs) %></h3>
-			<% @jobs.subcategories.each do |c| %>
-				<p><%= link_to c.name, category_subcategory_path(@jobs, c) %></p>
-			<% end %>
-			<h3><%= link_to @housing.name, category_path(@housing) %></h3>
-			<% @housing.subcategories.each do |c| %>
-			<p><%= link_to c.name, category_subcategory_path(@housing, c) %></p>
-			<% end %>
-
-
-			<h5>new listings:</h5>
-			<% @new_listings.each do |l| %>
-				<p><%= link_to l.title, listing_path(l) %></p>
-			<% end %>
-				</br>
-		
-
-
 

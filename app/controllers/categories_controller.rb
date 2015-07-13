@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 		@forsale = @categories[3]
 		@jobs = @categories[4]
 
-		@new_listings = Listing.order("id DESC").limit(10)
+		@new_listings = Listing.order("id DESC").limit(7)
 	end
 
 	def show
