@@ -1,5 +1,5 @@
 
-<h3 style="text-align:center;"><%= Category.find(params[:id]).name %></h3>
+<h3 style="text-align:center;">gregslist > <%= Category.find(params[:id]).name %></h3>
 
 <% @listings.each do |l| %>
 	<p><%= l.created_at %>: <%= link_to l.title, listing_path(l) %>: <%= l.city %>, <%= l.state %> in <%= l.subcategory.name %></p>

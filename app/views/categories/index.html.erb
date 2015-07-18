@@ -18,12 +18,12 @@
     <%= submit_tag 'search' %>
   <% end %>
 
-	<h5>help,faq,abuse,legal</h5>
-	<h5>avoid scams and fraud</h5>
-	<h5>personal safety tips</h5>
-	<h5>terms of use</h5>
-	<h5>privacy policy</h5>
-	<h5>system status</h5>
+	<h5><%= link_to "help,faq,abuse,legal", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "avoid scams and fraud", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "personal safety tips", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "terms of use", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "privacy policy", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "system status", about_path, style: "color:black;" %></h5>
 	</br>
 </div>
 
@@ -58,20 +58,20 @@
 
 
 <div class="span3 well" style="text-align:center;">
-	<h4>City</h4>
+	<h4>New York City</h4>
 
 	</br>
-	<h5>about gregslist</h5>
-	<h5>gregslist open source</h5>
-	<h5>gregslist blog</h5>
-	<h5>best-of-gregslist</h5>
-	<h5>gregslist TV</h5>
-	<h5>gregslist Joe</h5>
-	<h5>gregs Connect</h5>
+	<h5><%= link_to "about gregslist", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "gregslist open source", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "gregslist blog", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "best-of-gregslist", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "gregslist TV", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "gregslist Joe", about_path, style: "color:black;" %></h5>
+	<h5><%= link_to "gregs Connect", about_path, style: "color:black;" %></h5>
 	</br>
-	<h5>new listings:</h5>
-	<% Listing.limit(7).reverse.each do |l| %>
-		<p><%= link_to "#{l.title}, #{l.city}", listing_path(l) %></p>
+	<h5>newest listings:</h5>
+	<% Listing.limit(6).reverse.each do |l| %>
+		<p><%= link_to "#{l.title}, #{l.city}", listing_path(l) %>, <%= show_date(l.created_at, false) %></p>
 	<% end %>
 	</br>
 </div>

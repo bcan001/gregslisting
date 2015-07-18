@@ -1,4 +1,4 @@
-<h3 style="text-align:center;">Search Result:</h3>
+<h3 style="text-align:center;">gregslist > search</h3>
 
 <% @listing.each do |l| %>
 	<p><%= l.created_at %>: <%= link_to l.title, listing_path(l) %>: <%= l.city %>, <%= l.state %> in <%= l.subcategory.name %>, <%= Category.find(l.category_id).name %></p>

@@ -4,5 +4,5 @@
 <p><%= @listing.description %></p>
 <p><%= @listing.city %>, <%= @listing.state %></p>
 <p><%= @listing.zipcode %></p>
-<p> Posted <%= time_ago_in_words @listing.created_at %> ago </p>
+<p> Posted <%= time_ago_in_words @listing.created_at %> ago at <%= show_date(@listing.created_at, true) %></p>
 

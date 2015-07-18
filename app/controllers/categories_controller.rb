@@ -11,11 +11,16 @@ class CategoriesController < ApplicationController
 		@new_listings = Listing.order("id DESC").limit(7)
 
 		@disable_nav = true
+
 	end
 
 	def show
 		# show every listing in each category
 		@listings = Listing.where(category_id: params[:id])
+	end
+
+	def about
+
 	end
 
 end

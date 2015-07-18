@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/about', to: 'categories#about', as: 'about'
+
   #match '/contact', to: 'pages/contact', via: :get
 
   # listings form js (gets all the data and lists it to links.js file)
