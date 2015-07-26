@@ -10,13 +10,18 @@
 	<!-- <p class="notice"><%= notice %></p> -->
 	<!-- <p class="alert"><%= alert %></p> -->
 
+<%= render 'layouts/body1' unless @disable_nav %>
+<div id="main">
+	<%= yield %>
+</div>
+<%= render 'layouts/body2' unless @disable_nav %>
 
-	<%= render 'layouts/body1' unless @disable_nav %>
-		<%= yield %>
-	<%= render 'layouts/body2' unless @disable_nav %>
-	
 
 </body>
+</br>
+</br>
+</br>
+
 <footer>
   <%= render 'layouts/footer' %>
 </footer>

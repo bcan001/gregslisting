@@ -58,7 +58,11 @@
 
 
 <div class="span3 well" style="text-align:center;">
-	<h4>New York City</h4>
+	<% if user_signed_in? %>
+		<h4><%= current_user.current_city %></h4>
+	<% else %>
+		<h4>New York City</h4>
+	<% end %>
 
 	</br>
 	<h5><%= link_to "about gregslist", about_path, style: "color:black;" %></h5>
